@@ -20,7 +20,7 @@ public class ControladorServicosLimpeza {
         servicoLimpezaRepository.save(servico);
     }
     @GetMapping("/buscar/{id}")
-    public ServicoLimpeza buscarServico(@PathVariable Long id) {
+    public ServicoLimpeza buscarServico(@PathVariable Integer id) {
         return servicoLimpezaRepository.findById(id).orElse(null);
     }
 

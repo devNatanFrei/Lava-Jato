@@ -1,13 +1,16 @@
 package com.lavajato.LavaJato_2.entities;
 
 
-public class ProdutoLimpeza {
+import java.io.Serializable;
+
+public class ProdutoLimpeza implements Serializable {
+    private Integer id;
     private String nome;
-    private int quantidadeDisponivel;
+    private int quantidadedisponivel;
     private double precoUnitario;
 
     public int getQuantidadeDisponivel() {
-        return quantidadeDisponivel;
+        return quantidadedisponivel;
     }
 
     public double getPrecoUnitario() {
@@ -15,7 +18,7 @@ public class ProdutoLimpeza {
     }
 
     public void setQuantidadeDisponivel(int quantidade) {
-        this.quantidadeDisponivel = quantidade;
+        this.quantidadedisponivel = quantidade;
     }
 
     public void setPrecoUnitario(double preco) {

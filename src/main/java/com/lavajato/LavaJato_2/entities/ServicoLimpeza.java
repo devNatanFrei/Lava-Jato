@@ -1,22 +1,22 @@
 package com.lavajato.LavaJato_2.entities;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "servicos_limpeza")
-public class ServicoLimpeza {
+public class ServicoLimpeza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private LocalDateTime dataHora;
-    private String tipoServico;
+    private LocalDateTime datahora;
+    private String tiposervico;
     private Cliente cliente;
-    private ProdutoLimpeza produtoLimpeza;
+    private ProdutoLimpeza produtolimpeza;
     private Pagamento pagamento;
     public LocalDateTime getDataHora() {
-        return dataHora;
+        return datahora;
     }
 
     public void adicionarCliente(Cliente cliente) {

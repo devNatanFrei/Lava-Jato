@@ -1,32 +1,33 @@
 package com.lavajato.LavaJato_2.entities;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class Cliente implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String contato;
-    private String tipoVeiculo;
+    private String tipoveiculo;
     private String placa;
 
     public Cliente(String contato, String tipoVeiculo, String placa) {
         this.contato = contato;
-        this.tipoVeiculo = tipoVeiculo;
+        this.tipoveiculo = tipoVeiculo;
         this.placa = placa;
     }
+
     public Cliente() {
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -39,11 +40,11 @@ public class Cliente {
     }
 
     public String getTipoVeiculo() {
-        return tipoVeiculo;
+        return tipoveiculo;
     }
 
     public void setTipoVeiculo(String tipoVeiculo) {
-        this.tipoVeiculo = tipoVeiculo;
+        this.tipoveiculo = tipoVeiculo;
     }
 
     public String getPlaca() {
