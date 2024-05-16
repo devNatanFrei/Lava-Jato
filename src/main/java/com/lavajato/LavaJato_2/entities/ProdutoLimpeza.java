@@ -1,8 +1,11 @@
 package com.lavajato.LavaJato_2.entities;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
-
+@Entity
+@Table(name = "produtos_limpeza")
 public class ProdutoLimpeza implements Serializable {
     private Integer id;
     private String nome;

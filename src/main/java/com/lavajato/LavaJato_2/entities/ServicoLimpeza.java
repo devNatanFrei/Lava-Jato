@@ -12,8 +12,14 @@ public class ServicoLimpeza implements Serializable {
     private Integer id;
     private LocalDateTime datahora;
     private String tiposervico;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
+    @ManyToMany
+    @JoinColumn(name = "id_produtolimpeza")
     private ProdutoLimpeza produtolimpeza;
+    @OneToMany
+    @JoinColumn(name = "id_pagamento")
     private Pagamento pagamento;
     public LocalDateTime getDataHora() {
         return datahora;

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 @Entity
-@Table(name = "pagamento")
+@Table(name = "pagamentos")
 public class Pagamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
