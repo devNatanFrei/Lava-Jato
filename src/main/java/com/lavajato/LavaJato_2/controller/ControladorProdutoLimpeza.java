@@ -6,7 +6,11 @@ import com.lavajato.LavaJato_2.entities.ProdutoLimpeza;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("/produtos_limpeza")
 public class ControladorProdutoLimpeza {
     private List<ProdutoLimpeza> produtos;
 

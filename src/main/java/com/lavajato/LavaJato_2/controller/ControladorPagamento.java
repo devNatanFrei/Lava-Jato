@@ -1,20 +1,18 @@
 package com.lavajato.LavaJato_2.controller;
 
 
-import com.lavajato.LavaJato_2.entities.Cliente;
 import com.lavajato.LavaJato_2.entities.Pagamento;
 import com.lavajato.LavaJato_2.repository.PagamentoRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/pagamento")
+@RequestMapping("/pagamentos")
 public class ControladorPagamento {
     private PagamentoRepository pagamentoRepository;
     public void adicionarPagamento(@RequestBody Map<String,String> body) throws ParseException {
