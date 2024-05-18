@@ -1,6 +1,9 @@
 package com.lavajato.LavaJato_2.entities;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -10,6 +13,7 @@ public class ServicoLimpeza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime datahora;
     private String tiposervico;
     @ManyToOne
