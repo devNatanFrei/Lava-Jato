@@ -13,18 +13,23 @@ public class ServicoLimpeza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime datahora;
+
     private String tiposervico;
-    @ManyToOne
+   
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
-    @ManyToMany
+ 
     @JoinColumn(name = "id_produtolimpeza")
     private ProdutoLimpeza produtolimpeza;
-    @OneToMany
+   
     @JoinColumn(name = "id_pagamento")
     private Pagamento pagamento;
+
+   
+
     public LocalDateTime getDataHora() {
         return datahora;
     }
@@ -38,8 +43,8 @@ public class ServicoLimpeza implements Serializable {
     }
 
     public boolean verificarDisponibilidade(ProdutoLimpeza produtoLimpeza) {
-
-        return true;
+        int quantidade =  produtoLimpeza.getQuantidadeDisponivel();
+        return quantidade > 0;
     }
 
     public void solicitarAgendamento() {
@@ -47,6 +52,7 @@ public class ServicoLimpeza implements Serializable {
     }
 
     public String verificarDisponibilidadeDeAgendamento(LocalDateTime dataHora) {
-        return "Disponível";
+        return "Disponível"; 
     }
+    
 }

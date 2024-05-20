@@ -12,6 +12,12 @@ public class ProdutoLimpeza implements Serializable {
     private int quantidadedisponivel;
     private double precoUnitario;
 
+    public ProdutoLimpeza(String nome, int quantidadedisponivel, double precoUnitario) {
+        this.nome = nome;
+        this.quantidadedisponivel = quantidadedisponivel;
+        this.precoUnitario = precoUnitario;
+    }
+    
     public int getQuantidadeDisponivel() {
         return quantidadedisponivel;
     }

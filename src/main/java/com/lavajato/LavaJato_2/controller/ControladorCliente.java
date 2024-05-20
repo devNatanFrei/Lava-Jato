@@ -1,37 +1,38 @@
 package com.lavajato.LavaJato_2.controller;
 
 import com.lavajato.LavaJato_2.entities.Cliente;
-import com.lavajato.LavaJato_2.repository.ClienteRepository;
+import com.lavajato.LavaJato_2.service.ClienteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
-import java.util.Map;
+
 
 @RestController
 @RequestMapping("/clientes")
 public class ControladorCliente {
+   private final ClienteService clienteService;
+
     @Autowired
-    private ClienteRepository clienteRepository;
+    public ControladorCliente(ClienteService clienteService) {
+        this.clienteService = clienteService;
+    }
 
     @PostMapping("/adicionar")
-    public Cliente adicionarCliente(@RequestBody Map<String,String> body) {
-        String contato = body.get("contato");
-        String tipoVeiculo = body.get("tipoveiculo");
-        String placa = body.get("placa");
-        Cliente newCliente = new Cliente(contato, tipoVeiculo, placa);
-        return clienteRepository.save(newCliente);
+    public Cliente adicionarCliente(@RequestBody Cliente cliente) {
+        return clienteService.adicionarCliente(cliente);
     }
 
     @GetMapping("/buscar/{id}")
     public Cliente buscarCliente(@PathVariable Integer id) {
-
-        return clienteRepository.findById(id).orElse(null);
+        return clienteService.buscarCliente(id);
     }
 
     @GetMapping("/listar")
     public List<Cliente> listarClientes() {
-        return clienteRepository.findAll();
+        return clienteService.listarClientes();
     }
+
 }

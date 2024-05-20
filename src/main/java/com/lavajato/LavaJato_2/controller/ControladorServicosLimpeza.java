@@ -28,4 +28,6 @@ public class ControladorServicosLimpeza {
     public List<ServicoLimpeza> listarServicos() {
         return servicoLimpezaRepository.findAll();
     }
+
+   
 }
