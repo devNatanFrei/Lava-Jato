@@ -5,20 +5,19 @@ import com.lavajato.LavaJato_2.repository.PagamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+
 import java.util.List;
 
 @Service
 public class PagamentoService {
-    private final PagamentoRepository pagamentoRepository;
+    private PagamentoRepository pagamentoRepository;
 
     @Autowired
     public PagamentoService(PagamentoRepository pagamentoRepository) {
         this.pagamentoRepository = pagamentoRepository;
     }
 
-    public Pagamento adicionarPagamento(double valor, String metodopagamento, Date datapagamento) {
-        Pagamento pagamento = new Pagamento(valor, metodopagamento, datapagamento);
+    public Pagamento adicionarPagamento(Pagamento pagamento) {
         return pagamentoRepository.save(pagamento);
     }
 

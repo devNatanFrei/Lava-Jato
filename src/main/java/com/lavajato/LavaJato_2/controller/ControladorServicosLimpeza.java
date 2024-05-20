@@ -4,6 +4,8 @@ package com.lavajato.LavaJato_2.controller;
 
 import com.lavajato.LavaJato_2.entities.ServicoLimpeza;
 import com.lavajato.LavaJato_2.repository.ServicoLimpezaRepository;
+import com.lavajato.LavaJato_2.service.ServicoLimpezaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,20 +15,21 @@ import java.util.List;
 @RequestMapping("/servicos-limpeza")
 public class ControladorServicosLimpeza {
     @Autowired
-    private ServicoLimpezaRepository servicoLimpezaRepository;
+    private ServicoLimpezaService servicoLimpeza;
 
     @PostMapping("/cadastrar")
     public void adicionarServico(@RequestBody ServicoLimpeza servico) {
-        servicoLimpezaRepository.save(servico);
+        servicoLimpeza.adicionarServico(servico);
     }
+
     @GetMapping("/buscar/{id}")
     public ServicoLimpeza buscarServico(@PathVariable Integer id) {
-        return servicoLimpezaRepository.findById(id).orElse(null);
+        return servicoLimpeza.buscarServico(id);
     }
 
     @GetMapping("/listar")
     public List<ServicoLimpeza> listarServicos() {
-        return servicoLimpezaRepository.findAll();
+        return servicoLimpeza.listarServicos();
     }
 
    

@@ -8,7 +8,7 @@ import com.lavajato.LavaJato_2.entities.Cliente;
 import com.lavajato.LavaJato_2.repository.ClienteRepository;
 
 public class ClienteService {
-     private ClienteRepository clienteRepository;
+    private ClienteRepository clienteRepository;
 
     @Autowired
     public ClienteService(ClienteRepository clienteRepository) {

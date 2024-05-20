@@ -1,38 +1,37 @@
 package com.lavajato.LavaJato_2.controller;
 
-
 import com.lavajato.LavaJato_2.entities.Pagamento;
-import com.lavajato.LavaJato_2.repository.PagamentoRepository;
+import com.lavajato.LavaJato_2.service.PagamentoService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/pagamentos")
 public class ControladorPagamento {
-    private PagamentoRepository pagamentoRepository;
-    public void adicionarPagamento(@RequestBody Map<String,String> body) throws ParseException {
-        Double valor = Double.valueOf(body.get("valor"));
-        String metodopagamento = body.get("metodopagamento ");
-        String datapagamentoStr = body.get("datapagamento");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date datapagamento = dateFormat.parse(datapagamentoStr);
+    
+    @Autowired
+    private PagamentoService pagamentoService;
 
-        Pagamento pagamento = new Pagamento(valor, metodopagamento, datapagamento);
-        pagamentoRepository.save(pagamento);
-    }
-
-    @GetMapping("/buscar/{id}")
-    public Pagamento buscarCliente(@PathVariable Integer id) {
-        return pagamentoRepository.findById(id).orElse(null);
+    public ControladorPagamento(PagamentoService pagamentoService) {
+        this.pagamentoService = pagamentoService;
     }
 
     @GetMapping("/listar")
     public List<Pagamento> listarPagamentos() {
-        return pagamentoRepository.findAll();
+        return pagamentoService.listarPagamentos();
     }
+
+    @GetMapping("/buscar/{id}")
+    public Pagamento buscarPagamento(@PathVariable Integer id) {
+        return pagamentoService.buscarPagamento(id);
+    }
+
+    @PostMapping("/adicionar")
+    public Pagamento adicionarPagamento(@RequestBody Pagamento pagamento) {
+        return pagamentoService.adicionarPagamento(pagamento);
+    }
+
 }
