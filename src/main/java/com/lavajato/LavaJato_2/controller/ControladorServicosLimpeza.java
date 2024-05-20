@@ -17,7 +17,7 @@ public class ControladorServicosLimpeza {
     @Autowired
     private ServicoLimpezaService servicoLimpeza;
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/adicionar")
     public void adicionarServico(@RequestBody ServicoLimpeza servico) {
         servicoLimpeza.adicionarServico(servico);
     }
