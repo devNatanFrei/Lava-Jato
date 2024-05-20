@@ -18,8 +18,8 @@ public class ControladorServicosLimpeza {
     private ServicoLimpezaService servicoLimpeza;
 
     @PostMapping("/adicionar")
-    public void adicionarServico(@RequestBody ServicoLimpeza servico) {
-        servicoLimpeza.adicionarServico(servico);
+    public ServicoLimpeza adicionarServico(@RequestBody ServicoLimpeza servico) {
+        return servicoLimpeza.adicionarServico(servico);
     }
 
     @GetMapping("/buscar/{id}")
