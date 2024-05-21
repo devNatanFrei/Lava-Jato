@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lavajato.LavaJato_2.entities.ServicoLimpeza;
 import com.lavajato.LavaJato_2.repository.ServicoLimpezaRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ServicoLimpezaService {
-    private ServicoLimpezaRepository servicoLimpezaRepository;
+    private final ServicoLimpezaRepository servicoLimpezaRepository;
 
     @Autowired
     public ServicoLimpezaService(ServicoLimpezaRepository servicoLimpezaRepository) {

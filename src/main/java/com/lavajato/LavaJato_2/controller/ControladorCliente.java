@@ -6,16 +6,13 @@ import com.lavajato.LavaJato_2.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/clientes")
 public class ControladorCliente {
 
-   @Autowired
-   private  ClienteService clienteService;
+    private final ClienteService clienteService;
 
     @Autowired
     public ControladorCliente(ClienteService clienteService) {
@@ -36,5 +33,4 @@ public class ControladorCliente {
     public List<Cliente> listarClientes() {
         return clienteService.listarClientes();
     }
-
 }

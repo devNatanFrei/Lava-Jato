@@ -1,7 +1,10 @@
 package com.lavajato.LavaJato_2.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 @Entity
 @Table(name = "pagamentos")
@@ -9,11 +12,14 @@ public class Pagamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private double valor;
+    private Double valor;
     private String metodopagamento;
-    private Date datapagamento;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    @JoinColumn(name = "datapagamento")
+    private LocalDateTime datapagamento;
 
-    public Pagamento(double valor, String metodopagamento, Date datapagamento) {
+    public Pagamento(Double valor, String metodopagamento, LocalDateTime datapagamento) {
+        this.valor = valor != null ? valor : 0.0;
         this.valor = valor;
         this.metodopagamento = metodopagamento;
         this.datapagamento = datapagamento;
@@ -35,11 +41,11 @@ public class Pagamento implements Serializable {
         return metodopagamento;
     }
 
-    public void setDataPagamento(Date data) {
+    public void setDataPagamento(LocalDateTime data) {
         this.datapagamento = data;
     }
 
-    public Date getDataPagamento() {
+    public LocalDateTime getDataPagamento() {
         return datapagamento;
     }
 }

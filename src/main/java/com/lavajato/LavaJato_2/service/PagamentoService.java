@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 public class PagamentoService {
-    private PagamentoRepository pagamentoRepository;
+    private final PagamentoRepository pagamentoRepository;
 
     @Autowired
     public PagamentoService(PagamentoRepository pagamentoRepository) {

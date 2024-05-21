@@ -1,36 +1,47 @@
 package com.lavajato.LavaJato_2.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 @Entity
 @Table(name = "produtos_limpeza")
 public class ProdutoLimpeza implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nome;
-    private int quantidadedisponivel;
-    private double precoUnitario;
 
-    public ProdutoLimpeza(String nome, int quantidadedisponivel, double precoUnitario) {
+    private String nome;
+
+    @Column(name = "quantidadedisponivel")
+    private Integer quantidadedisponivel;
+
+    @Column(name = "precounitario")
+    private Double precounitario;
+
+    public ProdutoLimpeza(String nome, Integer quantidadedisponivel, Double precounitario) {
         this.nome = nome;
         this.quantidadedisponivel = quantidadedisponivel;
-        this.precoUnitario = precoUnitario;
+        if (precounitario == null){
+            this.precounitario = 0.0;
+        }
+        this.precounitario = precounitario;
     }
-    
+
     public int getQuantidadeDisponivel() {
         return quantidadedisponivel;
     }
 
+    public void setQuantidadeDisponivel(Integer quantidadeDisponivel) {
+        this.quantidadedisponivel = quantidadeDisponivel;
+    }
+
     public double getPrecoUnitario() {
-        return precoUnitario;
+        return precounitario;
     }
 
-    public void setQuantidadeDisponivel(int quantidade) {
-        this.quantidadedisponivel = quantidade;
+    public void setPrecoUnitario(Double preco) {
+        this.precounitario = preco;
     }
 
-    public void setPrecoUnitario(double preco) {
-        this.precoUnitario = preco;
-    }
+
 }
