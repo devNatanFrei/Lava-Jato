@@ -28,6 +28,10 @@ public class ControladorCliente {
     public Cliente buscarCliente(@PathVariable Integer id) {
         return clienteService.buscarCliente(id);
     }
+    @PutMapping("/atualizar/{id}")
+    public Cliente atualizarCliente(@PathVariable Integer id, @RequestBody Cliente cliente){
+        return clienteService.atualizarCliente(id, cliente);
+    }
 
     @GetMapping("/listar")
     public List<Cliente> listarClientes() {

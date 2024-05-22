@@ -24,6 +24,17 @@ public class ClienteService {
         return clienteRepository.findById(id).orElse(null);
     }
 
+    public Cliente atualizarCliente(Integer id, Cliente clienteAtualizado){
+        Cliente clienteExiste = buscarCliente(id);
+        if (clienteExiste != null){
+            clienteExiste.setContato(clienteAtualizado.getContato());
+            clienteExiste.setPlaca(clienteAtualizado.getPlaca());
+            clienteExiste.setTipoveiculo(clienteAtualizado.getTipoveiculo());
+
+            return clienteRepository.save(clienteExiste);
+        }
+        else return null;
+    }
     public List<Cliente> listarClientes() {
         return clienteRepository.findAll();
     }
