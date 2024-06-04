@@ -1,15 +1,22 @@
 package com.lavajato.LavaJato_2.entities;
 
-public class ProdutoLimpeza {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "produtoslimpeza")
+public class ProdutoLimpeza {
+    @Id
+    private Integer id;
     private String nome;
-    private int quantidadeDisponivel;
-    private double precoUnitario;
+    private int quantidadedisponivel;
+    private double precounitario;
 
     public ProdutoLimpeza(String nome, int quantidadeDisponivel, double precoUnitario) {
         this.nome = nome;
-        this.quantidadeDisponivel = quantidadeDisponivel;
-        this.precoUnitario = precoUnitario;
+        this.quantidadedisponivel = quantidadeDisponivel;
+        this.precounitario = precoUnitario;
     }
 
     public String getNome() {
@@ -17,11 +24,11 @@ public class ProdutoLimpeza {
     }
 
     public int getQuantidadeDisponivel() {
-        return quantidadeDisponivel;
+        return quantidadedisponivel;
     }
 
     public double getPrecoUnitario() {
-        return precoUnitario;
+        return precounitario;
     }
 
     public void setNome(String nome) {
@@ -29,10 +36,12 @@ public class ProdutoLimpeza {
     }
 
     public void setQuantidadeDisponivel(int quantidadeDisponivel) {
-        this.quantidadeDisponivel = quantidadeDisponivel;
+        this.quantidadedisponivel = quantidadeDisponivel;
     }
 
     public void setPrecoUnitario(double precoUnitario) {
-        this.precoUnitario = precoUnitario;
+        this.precounitario = precoUnitario;
     }
+
+
 }
