@@ -9,12 +9,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
-class ProdutoLimpezaController {
+class ControllerProdutoLimpeza {
 
     private final ProdutoLimpezaService produtoLimpezaService;
 
     @Autowired
-    public ProdutoLimpezaController(ProdutoLimpezaService produtoLimpezaService) {
+    public ControllerProdutoLimpeza(ProdutoLimpezaService produtoLimpezaService) {
         this.produtoLimpezaService = produtoLimpezaService;
     }
 
