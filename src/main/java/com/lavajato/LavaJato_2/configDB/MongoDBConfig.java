@@ -1,4 +1,4 @@
-package com.lavajato.LavaJato_2.service;
+package com.lavajato.LavaJato_2.configDB;
 
 
 import com.mongodb.client.MongoClient;

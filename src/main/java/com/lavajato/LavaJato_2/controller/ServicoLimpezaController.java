@@ -11,12 +11,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/servicoLimpeza")
-public class ControllerServicoLimpeza {
+public class ServicoLimpezaController {
 
     private final ServicoLimpezaService servicoLimpezaService;
 
     @Autowired
-    public ControllerServicoLimpeza(ServicoLimpezaService servicoLimpezaService) {
+    public ServicoLimpezaController(ServicoLimpezaService servicoLimpezaService) {
         this.servicoLimpezaService = servicoLimpezaService;
     }
 
