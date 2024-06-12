@@ -45,7 +45,6 @@ public class ServicoLimpezaController {
         return servicoLimpezaService.obterServicoLimpezaPorId(id);
     }
 
-
     @PostMapping("/solicitaragendamento")
     public String solicitarAgendamento(@RequestBody ServicoLimpeza servicoLimpeza) {
         try {
@@ -56,7 +55,7 @@ public class ServicoLimpezaController {
         }
     }
 
-    @GetMapping("/verificardisponibilidadedeagendamento/{datahora}")
+    @GetMapping("/verificardisponibilidadedeagendamento/{dataHora}")
     public String verificarDisponibilidadeDeAgendamento(@PathVariable String dataHora) {
         LocalDateTime dateTime = LocalDateTime.parse(dataHora);
         return servicoLimpezaService.verificarDisponibilidadeDeAgendamento(dateTime);

@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 public class ServicoLimpeza {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "datahora", nullable = false)
@@ -24,11 +25,8 @@ public class ServicoLimpeza {
     @JoinColumn(name = "produtolimpeza_id", nullable = false)
     private ProdutoLimpeza produtolimpeza;
 
-    
-
     public ServicoLimpeza() {
     }
-
 
     public Integer getId() {
         return id;
@@ -65,11 +63,6 @@ public class ServicoLimpeza {
     public void setProdutoLimpeza(ProdutoLimpeza produtoLimpeza) {
         this.produtolimpeza = produtoLimpeza;
     }
-
-    public void adicionarCliente(Cliente cliente) {
-        setCliente(cliente);
-    }
-
 
     public void solicitarAgendamento() {
         System.out.println("Agendamento solicitado para: " + this.datahora);

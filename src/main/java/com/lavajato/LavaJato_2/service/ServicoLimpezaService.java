@@ -49,7 +49,6 @@ public class ServicoLimpezaService {
         return servicoLimpezaRepository.findById(id);
     }
 
-
     public String verificarDisponibilidadeDeAgendamento(LocalDateTime dataHora) {
         List<ServicoLimpeza> servicos = servicoLimpezaRepository.findAll();
         for (ServicoLimpeza servico : servicos) {
@@ -69,4 +68,3 @@ public class ServicoLimpezaService {
         }
     }
 }
-
