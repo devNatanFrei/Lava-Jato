@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Table(name = "clientes")
 public class Cliente implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String contato;
     @JoinColumn(name = "tipoveiculo")
