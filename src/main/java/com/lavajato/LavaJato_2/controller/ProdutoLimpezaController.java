@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
-class ProdutoLimpezaController {
+public class ProdutoLimpezaController {
 
     private final ProdutoLimpezaService produtoLimpezaService;
 

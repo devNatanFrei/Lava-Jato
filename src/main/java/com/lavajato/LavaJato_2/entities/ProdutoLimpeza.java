@@ -1,10 +1,11 @@
 package com.lavajato.LavaJato_2.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "produtoslimpeza")
-public class ProdutoLimpeza {
+public class ProdutoLimpeza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
