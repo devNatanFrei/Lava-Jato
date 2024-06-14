@@ -8,7 +8,6 @@ import java.io.Serializable;
 @Table(name = "produtoslimpeza")
 public class ProdutoLimpeza implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
     private Integer quantidadedisponivel;

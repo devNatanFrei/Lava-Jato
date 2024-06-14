@@ -12,7 +12,6 @@ import java.util.Date;
 @Table(name = "pagamentos")
 public class Pagamento implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer valor;
     private String datapagamento;

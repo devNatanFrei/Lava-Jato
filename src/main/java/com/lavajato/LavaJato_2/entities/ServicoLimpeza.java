@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 public class ServicoLimpeza implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String datahora;

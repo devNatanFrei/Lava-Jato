@@ -12,7 +12,6 @@ import java.io.Serializable;
 
 public class Cliente implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String contato;
     private String tipoveiculo;
