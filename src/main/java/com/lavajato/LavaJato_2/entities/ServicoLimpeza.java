@@ -65,15 +65,5 @@ public class ServicoLimpeza implements Serializable {
         this.produtolimpeza = produtoLimpeza;
     }
 
-    public void solicitarAgendamento() {
-        System.out.println("Agendamento solicitado para: " + this.datahora);
-    }
 
-    public String verificarDisponibilidadeDeAgendamento(LocalDateTime dataHora) {
-        if (dataHora.isAfter(LocalDateTime.now())) {
-            return "Data e hora disponíveis";
-        } else {
-            return "Data e hora indisponíveis";
-        }
-    }
 }

@@ -45,19 +45,5 @@ public class ServicoLimpezaController {
         return servicoLimpezaService.obterServicoLimpezaPorId(id);
     }
 
-    @PostMapping("/solicitaragendamento")
-    public String solicitarAgendamento(@RequestBody ServicoLimpeza servicoLimpeza) {
-        try {
-            servicoLimpezaService.solicitarAgendamento(servicoLimpeza);
-            return "Agendamento solicitado com sucesso!";
-        } catch (RuntimeException e) {
-            return e.getMessage();
-        }
-    }
 
-    @GetMapping("/verificardisponibilidadedeagendamento/{dataHora}")
-    public String verificarDisponibilidadeDeAgendamento(@PathVariable String dataHora) {
-        LocalDateTime dateTime = LocalDateTime.parse(dataHora);
-        return servicoLimpezaService.verificarDisponibilidadeDeAgendamento(dateTime);
-    }
 }
