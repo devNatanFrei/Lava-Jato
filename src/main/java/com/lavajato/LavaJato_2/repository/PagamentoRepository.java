@@ -1,7 +1,10 @@
 package com.lavajato.LavaJato_2.repository;
 
 import com.lavajato.LavaJato_2.entities.Pagamento;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PagamentoRepository extends MongoRepository<Pagamento,Integer> {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface PagamentoRepository extends JpaRepository<Pagamento, Integer> {
 }

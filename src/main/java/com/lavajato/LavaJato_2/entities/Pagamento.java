@@ -1,7 +1,11 @@
 package com.lavajato.LavaJato_2.entities;
 
+
+
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -10,17 +14,18 @@ public class Pagamento implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Double valor;
+    private Integer valor;
+    private String datapagamento;
     private String metodopagamento;
-    private Date datapagamento;
+
 
     public Pagamento() {
     }
 
-    public Pagamento(Double valor, String metodoPagamento, Date datapagamento) {
+    public Pagamento(Integer valor, String data_pagamento, String metodo_pagamento) {
         this.valor = valor;
-        this.metodopagamento = metodoPagamento;
-        this.datapagamento = datapagamento;
+        this.datapagamento = data_pagamento;
+        this.metodopagamento = metodo_pagamento;
     }
 
     public Integer getId() {
@@ -31,11 +36,11 @@ public class Pagamento implements Serializable {
         this.id = id;
     }
 
-    public Double getValor() {
+    public Integer getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(Integer valor) {
         this.valor = valor;
     }
 
@@ -43,16 +48,15 @@ public class Pagamento implements Serializable {
         return metodopagamento;
     }
 
-    public void setMetodoPagamento(String metodoPagamento) {
-        this.metodopagamento = metodoPagamento;
+    public void setMetodoPagamento(String metodopagamento) {
+        this.metodopagamento = metodopagamento;
     }
 
-    public Date getDataPagamento() {
+    public String getDataPagamento() {
         return datapagamento;
     }
 
-    public void setDataPagamento(Date dataPagamento) {
-        this.datapagamento = dataPagamento;
+    public void setDataPagamento(String datapagamento) {
+        this.datapagamento = datapagamento;
     }
-
 }

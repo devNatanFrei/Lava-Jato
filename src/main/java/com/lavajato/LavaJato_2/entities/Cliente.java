@@ -1,25 +1,29 @@
 package com.lavajato.LavaJato_2.entities;
 
+
+
+
 import javax.persistence.*;
 import java.io.Serializable;
 
+
 @Entity
 @Table(name = "clientes")
+
 public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String contato;
-    @JoinColumn(name = "tipoveiculo")
     private String tipoveiculo;
     private String placa;
 
-    public Cliente(Integer id, String contato, String tipoveiculo, String placa) {
-        this.id = id;
+    public Cliente(String contato, String tipoveiculo, String placa) {
         this.contato = contato;
         this.tipoveiculo = tipoveiculo;
         this.placa = placa;
     }
+
     public Cliente() {
     }
 
