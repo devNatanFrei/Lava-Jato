@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
-@Table(name = "pagamentos")
+@Table(name = "pagamento")
 public class Pagamento implements Serializable {
     @Id
     private Integer id;
