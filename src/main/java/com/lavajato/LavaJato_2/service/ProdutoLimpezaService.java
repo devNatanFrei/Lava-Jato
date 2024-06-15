@@ -29,7 +29,7 @@ public class ProdutoLimpezaService {
         if (produtoExiste != null) {
             produtoExiste.setNome(produtoAtualizado.getNome());
             produtoExiste.setQuantidadeDisponivel(produtoAtualizado.getQuantidadeDisponivel());
-            produtoExiste.setPrecoUnitario(produtoAtualizado.getPrecoUnitario());
+            produtoExiste.setPrecoUnitario((int) produtoAtualizado.getPrecoUnitario());
 
             return produtoLimpezaRepository.save(produtoExiste);
         } else {

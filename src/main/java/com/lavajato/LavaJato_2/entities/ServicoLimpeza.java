@@ -1,53 +1,59 @@
 package com.lavajato.LavaJato_2.entities;
 
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "servicoslimpeza")
-public class ServicoLimpeza {
+public class ServicoLimpeza implements Serializable {
 
     @Id
     private Integer id;
 
-    @Column(name = "datahora", nullable = false)
-    private LocalDateTime datahora;
-
-    @Column(name = "tiposervico", nullable = false)
+    private String datahora;
     private String tiposervico;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
+
     private Cliente cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "produtolimpeza_id", nullable = false)
-    private ProdutoLimpeza produtolimpeza;
 
-    
+
+    private ProdutoLimpeza produtolimpeza;
 
     public ServicoLimpeza() {
     }
 
+    public ServicoLimpeza(String datahora, String tiposervico, Cliente cliente, ProdutoLimpeza produtolimpeza) {
+        this.datahora = datahora;
+        this.tiposervico = tiposervico;
+        this.cliente = cliente;
+        this.produtolimpeza = produtolimpeza;
+    }
 
     public Integer getId() {
         return id;
     }
 
-    public LocalDateTime getDataHora() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDataHora() {
         return datahora;
     }
 
-    public void setDataHora(LocalDateTime dataHora) {
-        this.datahora = dataHora;
+    public void setDataHora(String datahora) {
+        this.datahora = datahora;
     }
 
     public String getTipoServico() {
         return tiposervico;
     }
 
-    public void setTipoServico(String tipoServico) {
-        this.tiposervico = tipoServico;
+    public void setTipoServico(String tiposervico) {
+        this.tiposervico = tiposervico;
     }
 
     public Cliente getCliente() {
@@ -62,24 +68,7 @@ public class ServicoLimpeza {
         return produtolimpeza;
     }
 
-    public void setProdutoLimpeza(ProdutoLimpeza produtoLimpeza) {
-        this.produtolimpeza = produtoLimpeza;
-    }
-
-    public void adicionarCliente(Cliente cliente) {
-        setCliente(cliente);
-    }
-
-
-    public void solicitarAgendamento() {
-        System.out.println("Agendamento solicitado para: " + this.datahora);
-    }
-
-    public String verificarDisponibilidadeDeAgendamento(LocalDateTime dataHora) {
-        if (dataHora.isAfter(LocalDateTime.now())) {
-            return "Data e hora disponíveis";
-        } else {
-            return "Data e hora indisponíveis";
-        }
+    public void setProdutoLimpeza(ProdutoLimpeza produtolimpeza) {
+        this.produtolimpeza = produtolimpeza;
     }
 }

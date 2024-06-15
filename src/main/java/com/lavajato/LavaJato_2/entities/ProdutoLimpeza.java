@@ -1,47 +1,56 @@
 package com.lavajato.LavaJato_2.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "produtoslimpeza")
-public class ProdutoLimpeza {
+public class ProdutoLimpeza implements Serializable {
     @Id
     private Integer id;
     private String nome;
-    private int quantidadedisponivel;
-    private double precounitario;
+    private Integer quantidadedisponivel;
+    private Integer precounitario;
 
-    public ProdutoLimpeza(String nome, int quantidadeDisponivel, double precoUnitario) {
+    public ProdutoLimpeza() {
+    }
+
+    public ProdutoLimpeza(String nome, Integer quantidadedisponivel, Integer precounitario) {
         this.nome = nome;
-        this.quantidadedisponivel = quantidadeDisponivel;
-        this.precounitario = precoUnitario;
+        this.quantidadedisponivel = quantidadedisponivel;
+        this.precounitario = precounitario;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public int getQuantidadeDisponivel() {
-        return quantidadedisponivel;
-    }
-
-    public double getPrecoUnitario() {
-        return precounitario;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setQuantidadeDisponivel(int quantidadeDisponivel) {
-        this.quantidadedisponivel = quantidadeDisponivel;
+    public Integer getQuantidadeDisponivel() {
+        return quantidadedisponivel;
     }
 
-    public void setPrecoUnitario(double precoUnitario) {
-        this.precounitario = precoUnitario;
+    public void setQuantidadeDisponivel(int quantidadedisponivel) {
+        this.quantidadedisponivel = quantidadedisponivel;
     }
 
+    public Integer getPrecoUnitario() {
+        return precounitario;
+    }
 
+    public void setPrecoUnitario(Integer precounitario) {
+        this.precounitario = precounitario;
+    }
 }

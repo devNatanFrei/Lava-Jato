@@ -49,24 +49,4 @@ public class ServicoLimpezaService {
         return servicoLimpezaRepository.findById(id);
     }
 
-
-    public String verificarDisponibilidadeDeAgendamento(LocalDateTime dataHora) {
-        List<ServicoLimpeza> servicos = servicoLimpezaRepository.findAll();
-        for (ServicoLimpeza servico : servicos) {
-            if (servico.getDataHora().isEqual(dataHora)) {
-                return "Data e hora indisponíveis";
-            }
-        }
-        return "Data e hora disponíveis";
-    }
-
-    public void solicitarAgendamento(ServicoLimpeza servicoLimpeza) {
-        if (verificarDisponibilidadeDeAgendamento(servicoLimpeza.getDataHora()).equals("Data e hora disponíveis")) {
-            servicoLimpezaRepository.save(servicoLimpeza);
-            System.out.println("Agendamento solicitado para: " + servicoLimpeza.getDataHora());
-        } else {
-            throw new RuntimeException("Data e hora indisponíveis para agendamento.");
-        }
-    }
 }
-

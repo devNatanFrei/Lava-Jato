@@ -11,12 +11,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/servicoLimpeza")
-public class ControllerServicoLimpeza {
+public class ServicoLimpezaController {
 
     private final ServicoLimpezaService servicoLimpezaService;
 
     @Autowired
-    public ControllerServicoLimpeza(ServicoLimpezaService servicoLimpezaService) {
+    public ServicoLimpezaController(ServicoLimpezaService servicoLimpezaService) {
         this.servicoLimpezaService = servicoLimpezaService;
     }
 
@@ -46,19 +46,4 @@ public class ControllerServicoLimpeza {
     }
 
 
-    @PostMapping("/solicitaragendamento")
-    public String solicitarAgendamento(@RequestBody ServicoLimpeza servicoLimpeza) {
-        try {
-            servicoLimpezaService.solicitarAgendamento(servicoLimpeza);
-            return "Agendamento solicitado com sucesso!";
-        } catch (RuntimeException e) {
-            return e.getMessage();
-        }
-    }
-
-    @GetMapping("/verificardisponibilidadedeagendamento/{datahora}")
-    public String verificarDisponibilidadeDeAgendamento(@PathVariable String dataHora) {
-        LocalDateTime dateTime = LocalDateTime.parse(dataHora);
-        return servicoLimpezaService.verificarDisponibilidadeDeAgendamento(dateTime);
-    }
 }
