@@ -9,11 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
-@Table(name = "pagamentos")
+@Table(name = "pagamento")
 public class Pagamento implements Serializable {
     @Id
     private Integer id;
     private Integer valor;
+
     private String datapagamento;
     private String metodopagamento;
 
@@ -21,10 +22,10 @@ public class Pagamento implements Serializable {
     public Pagamento() {
     }
 
-    public Pagamento(Integer valor, String data_pagamento, String metodo_pagamento) {
+    public Pagamento(Integer valor, String datapagamento, String metodopagamento) {
         this.valor = valor;
-        this.datapagamento = data_pagamento;
-        this.metodopagamento = metodo_pagamento;
+        this.datapagamento = datapagamento;
+        this.metodopagamento = metodopagamento;
     }
 
     public Integer getId() {

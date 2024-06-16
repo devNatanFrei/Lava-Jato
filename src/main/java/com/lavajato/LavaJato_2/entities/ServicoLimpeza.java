@@ -1,35 +1,29 @@
 package com.lavajato.LavaJato_2.entities;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "servicoslimpeza")
 public class ServicoLimpeza implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String datahora;
     private String tiposervico;
-
-
-    private Cliente cliente;
-
-
-
-    private ProdutoLimpeza produtolimpeza;
+    private Integer cliente_id;
+    private Integer produtolimpeza_id;
 
     public ServicoLimpeza() {
     }
 
-    public ServicoLimpeza(String datahora, String tiposervico, Cliente cliente, ProdutoLimpeza produtolimpeza) {
+    public ServicoLimpeza(String datahora, String tiposervico, Integer cliente_id, Integer produtolimpeza_id) {
         this.datahora = datahora;
         this.tiposervico = tiposervico;
-        this.cliente = cliente;
-        this.produtolimpeza = produtolimpeza;
+        this.cliente_id = cliente_id;
+        this.produtolimpeza_id = produtolimpeza_id;
     }
 
     public Integer getId() {
@@ -56,19 +50,19 @@ public class ServicoLimpeza implements Serializable {
         this.tiposervico = tiposervico;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Integer getClienteId() {
+        return cliente_id;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setClienteId(Integer cliente_id) {
+        this.cliente_id = cliente_id;
     }
 
-    public ProdutoLimpeza getProdutoLimpeza() {
-        return produtolimpeza;
+    public Integer getProdutoLimpezaId() {
+        return produtolimpeza_id;
     }
 
-    public void setProdutoLimpeza(ProdutoLimpeza produtolimpeza) {
-        this.produtolimpeza = produtolimpeza;
+    public void setProdutoLimpezaId(Integer produtolimpeza_id) {
+        this.produtolimpeza_id = produtolimpeza_id;
     }
 }

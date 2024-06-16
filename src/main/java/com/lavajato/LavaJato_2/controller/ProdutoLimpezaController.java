@@ -33,7 +33,7 @@ public class ProdutoLimpezaController {
         return produtoLimpezaService.atualizarProdutoLimpeza(id, produto);
     }
 
-    @GetMapping
+    @GetMapping("/todos")
     public List<ProdutoLimpeza> listarProdutos() {
         return produtoLimpezaService.listarProdutosLimpeza();
     }
