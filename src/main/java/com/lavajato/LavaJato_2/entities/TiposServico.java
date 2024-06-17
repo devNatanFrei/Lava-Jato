@@ -1,24 +1,21 @@
 package com.lavajato.LavaJato_2.entities;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "produtoslimpeza")
-public class ProdutoLimpeza implements Serializable {
+@Table(name = "tiposservico")
+public class TiposServico implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private Integer quantidadedisponivel;
     private Integer precounitario;
 
-    public ProdutoLimpeza() {
-    }
+    public TiposServico() {}
 
-    public ProdutoLimpeza(String nome, Integer quantidadedisponivel, Integer precounitario) {
+    public TiposServico(String nome, Integer precounitario) {
         this.nome = nome;
-        this.quantidadedisponivel = quantidadedisponivel;
         this.precounitario = precounitario;
     }
 
@@ -36,14 +33,6 @@ public class ProdutoLimpeza implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Integer getQuantidadeDisponivel() {
-        return quantidadedisponivel;
-    }
-
-    public void setQuantidadeDisponivel(int quantidadedisponivel) {
-        this.quantidadedisponivel = quantidadedisponivel;
     }
 
     public Integer getPrecoUnitario() {
