@@ -33,14 +33,13 @@ public class PedidoService {
         TiposServico tiposServico = tiposServicoRepository.findById(tiposServicoId).orElse(null);
 
         if (cliente != null && tiposServico != null) {
-            // Criar e adicionar um novo pagamento
             Pagamento pagamento = new Pagamento();
             pagamento.setValor(tiposServico.getPrecoUnitario());
-            pagamento.setMetodoPagamento(metodoPagamento); // Exemplo de método de pagamento
+            pagamento.setMetodoPagamento(metodoPagamento);
             pagamento.setDataPagamento(LocalDateTime.now());
             Pagamento pagamentoSalvo = pagamentoService.adicionarPagamento(pagamento);
 
-            // Criar um novo pedido
+
             Pedido pedido = new Pedido(cliente, tiposServico, pagamentoSalvo);
             return pedidoRepository.save(pedido);
         }

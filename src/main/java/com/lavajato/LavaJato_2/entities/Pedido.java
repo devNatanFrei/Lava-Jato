@@ -30,7 +30,7 @@ public class Pedido implements Serializable {
         this.pagamento = pagamento;
     }
 
-    // Getters and setters
+
     public Integer getId() {
         return id;
     }
