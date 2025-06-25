@@ -3,6 +3,7 @@ package com.lavajato.LavaJato_2.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 
+
 @Entity
 @Table(name = "clientes")
 public class Cliente implements Serializable {
